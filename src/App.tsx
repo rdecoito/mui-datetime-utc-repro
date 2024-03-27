@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import dayjs, { Dayjs } from "dayjs";
 import utc from "dayjs/plugin/utc";
 import {
@@ -20,12 +20,19 @@ function App() {
         width="100vw"
         justifyContent="center"
         alignItems="center"
+        gap={3}
+        textAlign="center"
       >
+        <Typography>
+          The output of <code>dayjs(time).format('HH')</code>:
+          <br />
+          {dayjs(time).format("HH")}
+        </Typography>
         <MobileDateTimePicker
           timezone="UTC"
           label="Test"
           views={["day", "hours", "minutes", "seconds"]}
-          format="MM/DD/YYYY HH:mm:ss"
+          format="HH"
           ampm={false}
           value={time}
           onChange={(newTime) => setTime(newTime)}
